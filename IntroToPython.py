@@ -65,4 +65,3 @@ wl = np_weight / np_height ** 2 #Normal list/tuples cant do operatos with more t
 #2D Numpy
 np_2d = np.array([[1.2, 2.3], [3.3, 4.4]])
 #print(np_2d[0][1])
-
