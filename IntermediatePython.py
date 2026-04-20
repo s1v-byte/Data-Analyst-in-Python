@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 #Dictionaries
 fruits = { 
@@ -17,7 +18,7 @@ h  = np.random.normal(0, 2, 5)
 
 
 #MatplotLib
-import matplotlib.pyplot as plt
+"""import matplotlib.pyplot as plt
 
 year = [2020, 2021, 2022, 2029]
 pop = [1100, 1200, 1300, 1400]
@@ -29,7 +30,7 @@ plt.ylabel('Population')
 plt.title('World Population')
 plt.yticks([1100, 1200, 1300, 1400])
 plt.xticks([2020, 2021, 2022, 2029], ['1.2k', '1.2k', '1.3k', '1.4k'])
-plt.grid(True)
+plt.grid(True)"""
 
 #plt.show()
 
@@ -157,5 +158,96 @@ house = [["hallway", 11.25],
          ["bathroom", 9.50]]
          
 # Build a for loop from scratch
-for room, area in house:
-    print("the", room + " is " + str(area) + " sqm")
+#for room, area in house:
+    #print("the", room + " is " + str(area) + " sqm")
+
+#cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Iterate over rows of cars
+#for lab,row in cars.iterrows():
+    #print(lab)
+    #print(row)
+
+
+# Adapt for loop
+#for lab, row in cars.iterrows() :
+    #print(lab,row['cars_per_cap'])
+
+#Case Study: Hacker Statistics
+# NumPy is imported, seed is set
+seed = np.random.seed(123)
+
+# Starting step
+step = 50
+
+# Roll the dice
+dice = np.random.randint(1,7)
+
+# Finish the control construct
+if dice <= 2 :
+    step = step - 1
+elif 3 <= dice <= 5:
+    step = step + 1
+else:
+    step = step + np.random.randint(1,7)
+
+# Print out dice and step
+#print(dice, step)
+
+#Random Walk
+# NumPy is imported, seed is set
+
+# Initialization
+random_walk = [0]
+"""
+for x in range(100) :
+    step = random_walk[-1]
+    dice = np.random.randint(1,7)
+
+    if dice <= 2:
+        step = max(0, step - 1)
+    elif dice <= 5:
+        step = step + 1
+    else:
+        step = step + np.random.randint(1,7)
+
+    random_walk.append(step)"""
+
+"""# Import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
+# Plot random_walk
+plt.plot(random_walk)
+
+# Show the plot
+plt.show()"""
+
+# numpy and matplotlib imported, seed set
+
+# Simulate random walk 500 times
+all_walks = []
+for i in range(500) :
+    random_walk = [0]
+    for x in range(100) :
+        step = random_walk[-1]
+        dice = np.random.randint(1,7)
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+        if np.random.rand() <= 0.001 :
+            step = 0
+        random_walk.append(step)
+    all_walks.append(random_walk)
+
+# Create and plot np_aw_t
+np_aw_t = np.transpose(np.array(all_walks))
+
+# Select last row from np_aw_t: ends
+ends = np_aw_t[-1, :]
+
+# Plot histogram of ends, display plot
+plt.hist(ends, bins = 10)
+plt.show()
