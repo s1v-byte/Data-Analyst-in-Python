@@ -30,7 +30,7 @@ plt.yticks([1100, 1200, 1300, 1400])
 plt.xticks([2020, 2021, 2022, 2029], ['1.2k', '1.2k', '1.3k', '1.4k'])
 plt.grid(True)
 
-plt.show()
+#plt.show()
 
 #plt.scatter(year, pop)
 #plt.xscale('log') <- best for skewed data, it will add ** to every x value to see data better
@@ -38,3 +38,24 @@ plt.show()
 
 #plt.hist(age, bins = 20)
 #plt.show()
+
+#DICTIONARIES
+europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin', 'norway':'oslo' }
+
+#print(europe.keys())
+# Print out value that belongs to key 'norway'
+#print(europe['norway'])
+
+# Dictionary of dictionaries
+europe = { 'spain': { 'capital':'madrid', 'population':46.77 },
+           'france': { 'capital':'paris', 'population':66.03 },
+           'germany': { 'capital':'berlin', 'population':80.62 },
+           'norway': { 'capital':'oslo', 'population':5.084 } }
+
+# Print out the capital of France
+#print(europe['france'])
+# Create sub-dictionary data
+data = { 'capital': 'rome', 'population': 59.83 }
+# Add data to europe under key 'italy'
+europe['italy'] = data
+#print(europe)
