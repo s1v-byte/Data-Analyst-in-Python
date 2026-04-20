@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 #Dictionaries
 fruits = { 
@@ -6,7 +7,7 @@ fruits = {
     'bananas':{'cost':1, 'units':80},
     'grapes':{'cost':5, 'units':500}
 }
-print(fruits["bananas"]['units'])
+#print(fruits["bananas"]['units'])
 
 #Np basic statistics
     #np.ranmdom.normal
@@ -59,3 +60,53 @@ data = { 'capital': 'rome', 'population': 59.83 }
 # Add data to europe under key 'italy'
 europe['italy'] = data
 #print(europe)
+
+#PANDAS
+# Create dictionary my_dict with three key:value pairs: my_dict
+my_dict = {'country': ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt'],
+            'drives_right': [True, False, False, False, True, True, True],
+            'cars_per_cap': [809, 731, 588, 18, 200, 70, 45]}
+
+# Build a DataFrame cars from my_dict: cars
+cars = pd.DataFrame(my_dict)
+#print(cars)
+#Access columns
+#print(cars[["country", "drives_right"]])
+#Access rows
+#print(cars[0:4])
+#Acess Both
+#print(cars.loc[1:3], ["country", "drives_right"])
+
+#NUMPY
+# Create arrays
+my_house = np.array([18.0, 20.0, 10.75, 9.50])
+your_house = np.array([14.0, 24.0, 14.25, 9.0])
+
+# my_house greater than 18.5 or smaller than 10
+#print(np.logical_or(my_house > 18.5, my_house < 10))
+
+# Both my_house and your_house smaller than 11
+#print(np.logical_and(my_house < 11, your_house < 11))
+
+#IF ELSE ELIF
+# Define variables
+room = "bed"
+area = 14.0
+
+# if-elif-else construct for room
+if room == "kit" :
+    print("looking around in the kitchen.")
+elif room == "bed":
+    print("looking around in the bedroom.")
+else :
+    print("looking around elsewhere.")
+
+# if-elif-else construct for area
+if area > 15 :
+    print("big place!")
+elif area > 10:
+    print("medium size, nice!")
+else :
+    print("pretty small.")
+
+#FILTERING PANDAS
