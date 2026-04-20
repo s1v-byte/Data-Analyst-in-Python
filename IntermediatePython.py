@@ -94,7 +94,7 @@ room = "bed"
 area = 14.0
 
 # if-elif-else construct for room
-if room == "kit" :
+"""if room == "kit" :
     print("looking around in the kitchen.")
 elif room == "bed":
     print("looking around in the bedroom.")
@@ -107,6 +107,55 @@ if area > 15 :
 elif area > 10:
     print("medium size, nice!")
 else :
-    print("pretty small.")
+    print("pretty small.")"""
 
 #FILTERING PANDAS
+#cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Create medium: observations with cars_per_cap between 100 and 500
+#medium = cars[np.logical_and(cars["cars_per_cap"] > 100, cars["cars_per_cap"] < 500)]
+#print(medium)
+"""
+     cars_per_cap        country  drives_right
+US            809  United States          True
+AUS           731      Australia         False
+JPN           588          Japan         False
+IN             18          India         False
+RU            200         Russia          True
+MOR            70        Morocco          True
+EG             45          Egypt          True
+"""
+
+#LOOPS
+# Initialize offset
+offset = 8
+
+# Code the while loop
+while offset != 0:
+  #print("correcting...")
+  offset = offset - 1
+  #print(offset)
+
+# Initialize offset
+offset = -6
+
+# Code the while loop
+while offset != 0 :
+    #print("correcting...")
+    if offset > 0 :
+      offset = offset - 1
+    else : 
+      offset = offset + 1  
+    #print(offset)
+
+#FOR LOOPS
+# house list of lists
+house = [["hallway", 11.25], 
+         ["kitchen", 18.0], 
+         ["living room", 20.0], 
+         ["bedroom", 10.75], 
+         ["bathroom", 9.50]]
+         
+# Build a for loop from scratch
+for room, area in house:
+    print("the", room + " is " + str(area) + " sqm")
