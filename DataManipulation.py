@@ -29,3 +29,10 @@ is_madrid = dict1["capital"] == "madrid"
 print(dict1[is_46 & is_madrid])
 is_oslo_is_madrid = dict1["capital"].isin(["madrid", "oslo"])
 print(dict1[is_oslo_is_madrid])"""
+
+#New Columns
+dict1["times_2_pop"] = dict1["population"] * 2
+print(dict1["times_2_pop"])
+
+dict1["high_times_2_pop"] = dict1["times_2_pop"] > 100
+print(dict1.head())
