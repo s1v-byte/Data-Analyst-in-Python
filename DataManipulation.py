@@ -52,3 +52,13 @@ dict1["high_times_2_pop"] = dict1["times_2_pop"] > 100
 
 #print(dict1["population"].cumsum())
 #print(dict1["population"].cummax())
+
+#Counting
+dict1_count = dict1["population"].value_counts()
+print(dict1_count)
+
+dict1_count = dict1["population"].value_counts(normalize=True)#Percentage
+print(dict1_count)
+
+dict1_count = dict1["population"].value_counts(sort=True, normalize=True)#Percentage
+print(dict1_count)
