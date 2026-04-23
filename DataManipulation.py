@@ -32,7 +32,23 @@ print(dict1[is_oslo_is_madrid])"""
 
 #New Columns
 dict1["times_2_pop"] = dict1["population"] * 2
-print(dict1["times_2_pop"])
+#print(dict1["times_2_pop"])
 
 dict1["high_times_2_pop"] = dict1["times_2_pop"] > 100
-print(dict1.head())
+#print(dict1.head())
+
+#Aggregating DataFrames
+# Print the head of the sales DataFrame
+#print(dict1.head())
+
+# Print the info about the sales DataFrame
+#print(dict1.info())
+
+# Print the mean of weekly_sales
+#print(dict1["population"].mean())
+
+# Print the median of weekly_sales
+#print(dict1["population"].median())
+
+#print(dict1["population"].cumsum())
+#print(dict1["population"].cummax())
