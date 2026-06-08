@@ -15,6 +15,20 @@ df["transaction_date"] = pd.to_datetime(df["transaction_date"], errors="coerce")
 
 total_spent = df.groupby("item")["total_spent"].sum().sort_values(ascending=False)
 
+total_price = df.groupby('item')["price_per_unit"].sum().sort_values(ascending=False)
+
+dop = pd.merge(total_price, total_spent, on="item", how="inner")
+
+print(dop.head())
+
+dop.plot(kind="bar")
+plt.title("price vs revenue")
+plt.ylabel("Price")
+plt.xlabel("Item")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+plt.tight_layout()
+plt.show()
+
 total_spent.plot(kind="bar")
 plt.title("Total Item Revenue")
 plt.xlabel("Item")
