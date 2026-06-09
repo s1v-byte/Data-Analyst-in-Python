@@ -6,6 +6,9 @@ sns.set_style("whitegrid")
 
 df = pd.read_csv("dirty_cafe_sales.csv")
 
+
+#print(df.head())
+
 df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
 
 df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
@@ -14,12 +17,18 @@ df["total_spent"] = pd.to_numeric(df["total_spent"], errors="coerce")
 df["transaction_date"] = pd.to_datetime(df["transaction_date"], errors="coerce")
 
 total_spent = df.groupby("item")["total_spent"].sum().sort_values(ascending=False)
-
 total_price = df.groupby('item')["price_per_unit"].sum().sort_values(ascending=False)
 
+#Inner Join
 dop = pd.merge(total_price, total_spent, on="item", how="inner")
+#print(dop.head())
 
-print(dop.head())
+#Self Join
+credit_only = df[df["payment_method"] == "Credit Card"]
+cash_only = df[df["payment_method"] == "Cash"]
+
+cash_credit_only = pd.merge(credit_only, cash_only, on="transaction_id", how="outer")
+print(cash_credit_only.head())
 
 dop.plot(kind="bar")
 plt.title("price vs revenue")
@@ -27,7 +36,7 @@ plt.ylabel("Price")
 plt.xlabel("Item")
 plt.grid(axis="y", linestyle="--", alpha=0.7)
 plt.tight_layout()
-plt.show()
+#plt.show()
 
 total_spent.plot(kind="bar")
 plt.title("Total Item Revenue")
@@ -35,7 +44,7 @@ plt.xlabel("Item")
 plt.ylabel("Revenue")
 plt.grid(axis="y", linestyle="--", alpha=0.7)
 plt.tight_layout()
-plt.show()
+#plt.show()
 
 
 plt.figure(figsize=(6, 4))
@@ -45,4 +54,4 @@ sns.countplot(
 )
 plt.title("Payment Method Usage")
 plt.tight_layout()
-plt.show()
+#plt.show()
